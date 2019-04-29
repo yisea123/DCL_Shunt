@@ -3,6 +3,8 @@
 
 #include <QObject>
 #include <QThread>
+#include <QMutex>
+#include <QMutexLocker>
 
 #include "snap7.h"
 #include "dcl_plc_define.h"
@@ -14,6 +16,8 @@ public:
     explicit SiemensPLCDevice(QThread *parent = 0);
     ~SiemensPLCDevice();
 
+    void InitSiemensPLC();
+
     void SetDeviceIP(QString str_IP);
 
 //    void SetDeviceID(int n_ID);
@@ -21,9 +25,9 @@ public:
     void SetWriteParameter(int n_DBNumber, int n_Start);
     void SetReadParameter(int n_DBNumber, int n_Start);
 
-    void ConnectDevice();
+    bool ConnectDevice();
 
-    void DisconnectDevice();
+    bool DisconnectDevice();
 
     bool GetConnectState();
 
@@ -54,12 +58,14 @@ private:
 
     QString m_strIP;
 
-    int m_WriteDBNumber;
-    int n_WriteStart;
-    int n_ReadDBNumber;
-    int n_ReadStart;
+    int m_nWriteDBNumber;
+    int m_nWriteStart;
+    int m_nReadDBNumber;
+    int m_nReadStart;
 
     bool m_bConnectState;
+
+    bool m_bRunSwitch;
 };
 
 #endif // SIEMENSPLCDEVICE_H
