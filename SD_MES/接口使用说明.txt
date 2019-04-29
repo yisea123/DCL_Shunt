@@ -1,0 +1,47 @@
+初始化：
+    QUrl url = QUrl("http://10.10.156.11:50000/sapdevwebservice/ExecutingServiceService?wsdl");
+    reqIsEmpty = new MESReqBoxItem(url, this);
+    connect(reqIsEmpty, &MESReqBoxItem::sigBoxItem,
+            this, &MainWindow::slotReqEmpty);
+			
+请求是否为空：
+	reqIsEmpty->sendReqBoxItem("3XXXX0001", "A21712700001");
+	
+返回槽函数
+void MainWindow::slotReqEmpty(QString devName, QString boxId, QString item, int result)
+{
+    qDebug()<<"slotReqEmpty"<<devName<<boxId<<item<<result;
+}
+
+item返回值说明
+只有在返回满框（result == 2）时候才读item，其它情况item为空
+
+result 返回值说明
+1,         //结果为空框
+2,          //结果为满框
+3,            //料框在mes系统不存在，停机检查
+4,           //网络错误，停机检查
+5          //mes回复status错误，停机检查
+
+
+Url说明：
+TestUrl：测试使用
+DebugUrl：跟mes调试使用
+RunningUrl：正式机运行软件时使用
+
+MESTest类单独使用的url：
+HeartBeatUrlTest:测试使用
+HeartBeatUrlDebug：跟mes调试使用
+HeartBeatUrlRunning：正式机运行软件时使用
+
+1.请求是否为空框接口--MESReqBoxIsEmpty
+
+2.请求坏品信息接口--MESReqBadInfo
+
+3.坏品挑选完成后通知MES移除料框中坏品接口--MESRemoveBadBox
+
+4.空框装满坏品以后上传给MES MESAddBackFixBox
+
+5.MES测试接口--MESNetTest
+
+
