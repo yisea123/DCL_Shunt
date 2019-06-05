@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QMap>
 #include <QThread>
+#include <QMutex>
+#include <QMutexLocker>
 
 #include "scanerdevice.h"
 
@@ -25,8 +27,17 @@ public:
     //«Î«Û…®¬Î
     bool RequsetCode(const int &n_ID);
 
+    bool GetConnectScanerList(QList<int> &list_ConnectScaner);
+
 private:
     void WorkSleep(int n_Msec);
+
+signals:
+    void sig_ConnectDevice(int n_ID);
+
+    void sig_DisconnectDevice(int n_ID);
+
+    void sig_RequestCode(int n_ID);
 
 signals:
     /*
@@ -55,6 +66,12 @@ private slots:
 private:
     QMap<int, ScanerDevice *> m_mapScaner;
     QMap<int, QThread *> m_mapThread;
+
+    QList<int> m_listNeedConnectScaner;
+
+    QList<int> m_listConnectScaner;
+
+    QMutex m_oQMutex;
 };
 
 #endif // SCANERMANAGER_H

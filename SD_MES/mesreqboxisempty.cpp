@@ -44,9 +44,11 @@ void MESReqBoxIsEmpty::sendReqBoxIsEmpty(const QString devName, const QString bo
     connect(manager, &QNetworkAccessManager::authenticationRequired,
             this, &MESReqBoxIsEmpty::slotAuthenticationRequired);
     QNetworkReply *reply = manager->post(req,soapXML.toUtf8());
-    qDebug()<<"pos msg"<<soapXML.toUtf8();
+//    qDebug()<<"pos msg"<<soapXML.toUtf8();
+    reply->setParent(this);
 
     QAbstractSocket::connect(reply,&QNetworkReply::finished,[=](){
+        reply->abort();
         if(reply->error() != QNetworkReply::NoError)
         {
             qDebug()<<"error msg:"<<reply->errorString();
@@ -87,7 +89,7 @@ void MESReqBoxIsEmpty::sendReqBoxIsEmpty(const QString devName, const QString bo
 
 void MESReqBoxIsEmpty::analysisData(const QByteArray bytes, QJsonObject &jsonObj, bool &status)
 {
-    qDebug()<<"rec msg:"<<bytes;
+//    qDebug()<<"rec msg:"<<bytes;
     QXmlStreamReader reader(bytes);
     while (!reader.atEnd())
     {
@@ -95,7 +97,7 @@ void MESReqBoxIsEmpty::analysisData(const QByteArray bytes, QJsonObject &jsonObj
         {
             if(reader.name().toString().compare("status", Qt::CaseInsensitive) == 0)
             {
-                qDebug()<<reader.name();
+//                qDebug()<<reader.name();
                 reader.readNext();
                 if(reader.atEnd())
                 {
@@ -112,7 +114,7 @@ void MESReqBoxIsEmpty::analysisData(const QByteArray bytes, QJsonObject &jsonObj
                     {
                         status = false;
                     }
-                    qDebug()<<"status = "<<status;
+//                    qDebug()<<"status = "<<status;
                 }
             }
             if(reader.name().toString().compare("returnList", Qt::CaseInsensitive) == 0)
@@ -160,7 +162,7 @@ void MESReqBoxIsEmpty::setMesUrl(const QUrl url)
 
 void MESReqBoxIsEmpty::slotAuthenticationRequired(QNetworkReply *reply, QAuthenticator *authenticator)
 {
-    qDebug()<<"log in mes";
+//    qDebug()<<"log in mes";
     Q_UNUSED(reply);
     authenticator->setUser("sapint");
     authenticator->setPassword("sap12345");

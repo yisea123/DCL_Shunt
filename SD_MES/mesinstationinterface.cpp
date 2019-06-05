@@ -39,15 +39,17 @@ void MESInStationInterface::sendInStation(const QString scannerName, const QStri
                               "</yq1:execute>"
                               "</SOAP-ENV:Body>"
                               "</SOAP-ENV:Envelope>").arg(jsonStr);
-    qDebug()<<"send msg:"<<soapXML;
+//    qDebug()<<"send msg:"<<soapXML;
     auto manager = new QNetworkAccessManager(this);
     connect(manager, &QNetworkAccessManager::authenticationRequired,
             this, &MESInStationInterface::slotAuthenticationRequired);
     QNetworkReply *reply = manager->post(req,soapXML.toUtf8());
+    reply->setParent(this);
     QAbstractSocket::connect(reply,&QNetworkReply::finished,[=](){
+        reply->abort();
         if(reply->error() != QNetworkReply::NoError)
         {
-            qDebug()<<"error msg:"<<reply->errorString();
+//            qDebug()<<"error msg:"<<reply->errorString();
             int errCount = resendCount + 1;
             if(errCount < NetworkErrorResendTimes)
             {
@@ -96,7 +98,7 @@ QString MESInStationInterface::getDataJsonString(const QString scannerName, cons
 
 void MESInStationInterface::analysisData(const QByteArray bytes, bool &status, QJsonObject &jsonObj)
 {
-    qDebug()<<"rev msg:"<<bytes;
+//    qDebug()<<"rev msg:"<<bytes;
     QXmlStreamReader reader(bytes);
     while (!reader.atEnd())
     {
@@ -114,7 +116,7 @@ void MESInStationInterface::analysisData(const QByteArray bytes, bool &status, Q
                     QString jsonStr = reader.text().toString();
                     jsonObj = getJsonObj(jsonStr);
                 }
-                qDebug()<<"jsonObj = "<<status;
+//                qDebug()<<"jsonObj = "<<status;
             }
             if(reader.name().toString().compare("status", Qt::CaseInsensitive) == 0)
             {
@@ -134,7 +136,7 @@ void MESInStationInterface::analysisData(const QByteArray bytes, bool &status, Q
                     {
                         status = false;
                     }
-                    qDebug()<<"status = "<<status;
+//                    qDebug()<<"status = "<<status;
                 }
             }
         }
@@ -148,7 +150,7 @@ QJsonObject MESInStationInterface::getJsonObj(QString jsonStr)
     QJsonDocument jsonDoc(QJsonDocument::fromJson(jsonStr.toUtf8(), &jsonRrr));
     if(jsonRrr.error != QJsonParseError::NoError)
     {
-        qDebug() << "mes json error";
+//        qDebug() << "mes json error";
         return QJsonObject();
     }
     if(jsonDoc.isObject())
@@ -163,7 +165,7 @@ QJsonObject MESInStationInterface::getJsonObj(QString jsonStr)
 
 void MESInStationInterface::slotAuthenticationRequired(QNetworkReply *reply, QAuthenticator *authenticator)
 {
-    qDebug()<<"log in mes";
+//    qDebug()<<"log in mes";
     Q_UNUSED(reply);
     authenticator->setUser("sapint");
     authenticator->setPassword("sap12345");

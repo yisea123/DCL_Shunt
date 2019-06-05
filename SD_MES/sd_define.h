@@ -1,4 +1,4 @@
-#ifndef SD_DEFINE_H
+﻿#ifndef SD_DEFINE_H
 #define SD_DEFINE_H
 
 #include <QString>
@@ -38,7 +38,7 @@ enum MESRESPOND{
     RESPONDSUCCEED,
     NETWORKERROR,
     STATUSERROR,
-    DATAERROR
+    DATAERROR,
 };
 
 struct PRODUCTINFO{

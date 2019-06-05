@@ -4,29 +4,51 @@
 #include <QCoreApplication>
 #include <QEventLoop>
 #include <QJsonObject>
+#include <QMetaType>
+#include <QDebug>
 
 SDMesManager::SDMesManager(QThread *parent)
     : QThread(parent)
 {
-    SetMesUrl(TEST);
+    qRegisterMetaType<MESRESPOND>("MESRESPOND");
+    qRegisterMetaType<EXPORTDIRECTION>("EXPORTDIRECTION");
+    qRegisterMetaType<BOXSTATE>("BOXSTATE");
+
+    m_pMESNetTest               = NULL;
+//    m_pMESAddBackFixBox         = NULL;
+//    m_pMESInStationInterface    = NULL;
+//    m_pMESRemoveBadBox          = NULL;
+//    m_pMESReqBadInfo            = NULL;
+//    m_pMESReqBoxIsEmpty         = NULL;
+
+    m_pQTimer = NULL;
+    m_pQTimer = new QTimer;
+
+    connect(m_pQTimer, &QTimer::timeout,
+            this, &SDMesManager::slot_TimeOut);
+
+    m_pQTimer->start(500);
+
+//    InitSDMesManager();
+
+    SetMesUrl(CURRENTUSE);
 
     m_bRunSwitch = true;
 
-    m_pMESAddBackFixBox         = NULL;
-    m_pMESInStationInterface    = NULL;
-    m_pMESNetTest               = NULL;
-    m_pMESRemoveBadBox          = NULL;
-    m_pMESReqBadInfo            = NULL;
-    m_pMESReqBoxIsEmpty         = NULL;
-
-    InitSDMesManager();
-
-    this->start();
+//    this->start();
 }
 
 SDMesManager::~SDMesManager()
 {
     m_bRunSwitch = false;
+
+    if(m_pQTimer != NULL){
+        if(m_pQTimer->isActive())
+            m_pQTimer->stop();
+
+        delete m_pQTimer;
+        m_pQTimer = NULL;
+    }
 
     this->quit();
     this->wait();
@@ -36,63 +58,81 @@ SDMesManager::~SDMesManager()
 
 void SDMesManager::InitSDMesManager()
 {
-    m_pMESAddBackFixBox         = new MESAddBackFixBox(m_oMesUrl);
-    m_pMESInStationInterface    = new MESInStationInterface(m_oMesUrl);
-    m_pMESNetTest               = new MESNetTest(m_oMesUrl);
-    m_pMESRemoveBadBox          = new MESRemoveBadBox(m_oMesUrl);
-    m_pMESReqBadInfo            = new MESReqBadInfo(m_oMesUrl);
-    m_pMESReqBoxIsEmpty         = new MESReqBoxIsEmpty(m_oMesUrl);
 
-    connect(m_pMESAddBackFixBox, SIGNAL(sigUploadResult(QString, QString, int)),
-            this, SLOT(slot_Result_SendBadProductList(QString, QString, int)));
+//    m_pMESAddBackFixBox         = new MESAddBackFixBox(m_oMesUrl);
+//    m_pMESInStationInterface    = new MESInStationInterface(m_oMesUrl);
+//    m_pMESNetTest               = new MESNetTest(m_oMesUrl);
+//    m_pMESRemoveBadBox          = new MESRemoveBadBox(m_oMesUrl);
+//    m_pMESReqBadInfo            = new MESReqBadInfo(m_oMesUrl);
+//    m_pMESReqBoxIsEmpty         = new MESReqBoxIsEmpty(m_oMesUrl);
 
-    connect(m_pMESInStationInterface, SIGNAL(sigInStationRespond(QString, QString, QString, int)),
-            this, SLOT(slot_Result_RequestExportDirection(QString, QString, QString, int)));
+//    connect(m_pMESAddBackFixBox, SIGNAL(sigUploadResult(QString, QString, int)),
+//            this, SLOT(slot_Result_SendBadProductList(QString, QString, int)));
 
-    connect(m_pMESNetTest, SIGNAL(sigTestResult(int)),
-            this, SLOT(slot_Result_Heartbeat(int)));
+//    connect(m_pMESInStationInterface, SIGNAL(sigInStationRespond(QString, QString, QString, int)),
+//            this, SLOT(slot_Result_RequestExportDirection(QString, QString, QString, int)));
 
-    connect(m_pMESRemoveBadBox, SIGNAL(sigUploadResult(QString, QString, int)),
-            this, SLOT(slot_Result_CompleteSortingBadProduct(QString, QString, int)));
+//    connect(m_pMESNetTest, SIGNAL(sigTestResult(int)),
+//            this, SLOT(slot_Result_Heartbeat(int)));
 
-    connect(m_pMESReqBadInfo, SIGNAL(sigReqBadInfo(QString, QString, QJsonArray, int)),
-            this, SLOT(slot_Result_RequestProductListInfo(QString, QString, QJsonArray, int)));
+//    connect(m_pMESRemoveBadBox, SIGNAL(sigUploadResult(QString, QString, int)),
+//            this, SLOT(slot_Result_CompleteSortingBadProduct(QString, QString, int)));
 
-    connect(m_pMESReqBoxIsEmpty, SIGNAL(sigIsEmptyRespond(QString, QString, int, int)),
-            this, SLOT(slot_Result_RequestBoxIsEmpty(QString, QString, int, int)));
+//    connect(m_pMESReqBadInfo, SIGNAL(sigReqBadInfo(QString, QString, QJsonArray, int)),
+//            this, SLOT(slot_Result_RequestProductListInfo(QString, QString, QJsonArray, int)));
+
+//    connect(m_pMESReqBoxIsEmpty, SIGNAL(sigIsEmptyRespond(QString, QString, int, int)),
+//            this, SLOT(slot_Result_RequestBoxIsEmpty(QString, QString, int, int)));
 }
 
 void SDMesManager::ExitSDMesManager()
 {
-    if(m_pMESAddBackFixBox != NULL){
-        delete m_pMESAddBackFixBox;
-        m_pMESAddBackFixBox = NULL;
-    }
-
-    if(m_pMESInStationInterface != NULL){
-        delete m_pMESInStationInterface;
-        m_pMESInStationInterface = NULL;
-    }
-
     if(m_pMESNetTest != NULL){
-        delete m_pMESNetTest;
+        m_pMESNetTest->deleteLater();
         m_pMESNetTest = NULL;
     }
 
-    if(m_pMESRemoveBadBox != NULL){
-        delete m_pMESRemoveBadBox;
-        m_pMESRemoveBadBox = NULL;
+    QMapIterator<int, MESAddBackFixBox *> map_Iterator_1(m_mapAddBackFixBox);
+    while(map_Iterator_1.hasNext()){
+          map_Iterator_1.next();
+          MESAddBackFixBox *p_AddBackFixBox = map_Iterator_1.value();
+          p_AddBackFixBox->deleteLater();
     }
 
-    if(m_pMESReqBadInfo != NULL){
-        delete m_pMESReqBadInfo;
-        m_pMESReqBadInfo = NULL;
+    QMapIterator<int, MESInStationInterface *> map_Iterator_2(m_mapInStationInterface);
+    while(map_Iterator_2.hasNext()){
+          map_Iterator_2.next();
+          MESInStationInterface *p_InStationInterface = map_Iterator_2.value();
+          p_InStationInterface->deleteLater();
     }
 
-    if(m_pMESReqBoxIsEmpty != NULL){
-        delete m_pMESReqBoxIsEmpty;
-        m_pMESReqBoxIsEmpty = NULL;
+    QMapIterator<int, MESRemoveBadBox *> map_Iterator_3(m_mapRemoveBadBox);
+    while(map_Iterator_3.hasNext()){
+          map_Iterator_3.next();
+          MESRemoveBadBox *p_RemoveBadBox = map_Iterator_3.value();
+          p_RemoveBadBox->deleteLater();
     }
+
+    QMapIterator<int, MESReqBadInfo *> map_Iterator_4(m_mapReqBadInfo);
+    while(map_Iterator_4.hasNext()){
+          map_Iterator_4.next();
+          MESReqBadInfo *p_ReqBadInfo = map_Iterator_4.value();
+          p_ReqBadInfo->deleteLater();
+    }
+
+    QMapIterator<int, MESReqBoxIsEmpty *> map_Iterator_5(m_mapReqBoxIsEmpty);
+    while(map_Iterator_5.hasNext()){
+          map_Iterator_5.next();
+          MESReqBoxIsEmpty *p_ReqBoxIsEmpty = map_Iterator_5.value();
+          p_ReqBoxIsEmpty->deleteLater();
+    }
+
+    m_mapAddBackFixBox.clear();
+    m_mapInStationInterface.clear();
+    m_mapRemoveBadBox.clear();
+    m_mapReqBadInfo.clear();
+    m_mapReqBoxIsEmpty.clear();
+
 }
 
 bool SDMesManager::SetMesUrl(MESURLTYPE MESUrl_Type)
@@ -126,20 +166,20 @@ bool SDMesManager::SetMesUrl(MESURLTYPE MESUrl_Type)
         break;
     }
 
-    if(m_pMESAddBackFixBox              == NULL ||
-            m_pMESInStationInterface    == NULL ||
-            m_pMESNetTest               == NULL ||
-            m_pMESRemoveBadBox          == NULL ||
-            m_pMESReqBadInfo            == NULL ||
-            m_pMESReqBoxIsEmpty         == NULL)
-        return false;
+//    if(m_pMESAddBackFixBox              == NULL ||
+//            m_pMESInStationInterface    == NULL ||
+//            m_pMESNetTest               == NULL ||
+//            m_pMESRemoveBadBox          == NULL ||
+//            m_pMESReqBadInfo            == NULL ||
+//            m_pMESReqBoxIsEmpty         == NULL)
+//        return false;
 
-    m_pMESAddBackFixBox->setMesUrl(m_oMesUrl);
-    m_pMESInStationInterface->setMesUrl(m_oMesUrl);
-    m_pMESNetTest->setMesUrl(m_oMesUrl);
-    m_pMESRemoveBadBox->setMesUrl(m_oMesUrl);
-    m_pMESReqBadInfo->setMesUrl(m_oMesUrl);
-    m_pMESReqBoxIsEmpty->setMesUrl(m_oMesUrl);
+//    m_pMESAddBackFixBox->setMesUrl(m_oMesUrl);
+//    m_pMESInStationInterface->setMesUrl(m_oMesUrl);
+//    m_pMESNetTest->setMesUrl(m_oMesUrl);
+//    m_pMESRemoveBadBox->setMesUrl(m_oMesUrl);
+//    m_pMESReqBadInfo->setMesUrl(m_oMesUrl);
+//    m_pMESReqBoxIsEmpty->setMesUrl(m_oMesUrl);
 
     return true;
 }
@@ -153,56 +193,86 @@ bool SDMesManager::UploadBadProductList(const int &n_ScanerId,
     if(!TD_QListToJson(list_Product, json_BadProductList))
         return false;
 
-    if(m_pMESAddBackFixBox == NULL)
+    if(m_mapAddBackFixBox.contains(n_ScanerId))
         return false;
 
-    m_pMESAddBackFixBox->sendBackFixBox(QString::number(n_ScanerId),
-                                        str_Code,
-                                        json_BadProductList);
+    auto *p_MESAddBackFixBox = new MESAddBackFixBox(m_oMesUrl);
+    connect(p_MESAddBackFixBox, SIGNAL(sigUploadResult(QString, QString, int)),
+            this, SLOT(slot_Result_SendBadProductList(QString, QString, int)));
+
+    m_mapAddBackFixBox.insert(n_ScanerId, p_MESAddBackFixBox);
+
+    p_MESAddBackFixBox->sendBackFixBox(QString::number(n_ScanerId),
+                                       str_Code,
+                                       json_BadProductList);
     return true;
 }
 
 bool SDMesManager::RequestExportDirection(const int &n_ScanerId,
                                           const QString &str_Code)
 {
-    if(m_pMESInStationInterface == NULL)
+    if(m_mapInStationInterface.contains(n_ScanerId))
         return false;
 
-    m_pMESInStationInterface->sendInStation(QString::number(n_ScanerId),
-                                            str_Code);
+    auto p_MESInStationInterface = new MESInStationInterface(m_oMesUrl);
+    connect(p_MESInStationInterface, SIGNAL(sigInStationRespond(QString, QString, QString, int)),
+            this, SLOT(slot_Result_RequestExportDirection(QString, QString, QString, int)));
+
+    m_mapInStationInterface.insert(n_ScanerId, p_MESInStationInterface);
+
+    p_MESInStationInterface->sendInStation(QString::number(n_ScanerId),
+                                           str_Code);
     return true;
 }
 
 bool SDMesManager::CompleteSortingBadProduct(const int &n_ScanerId,
                                              const QString &str_Code)
 {
-    if(m_pMESRemoveBadBox == NULL)
+    if(m_mapRemoveBadBox.contains(n_ScanerId))
         return false;
 
-    m_pMESRemoveBadBox->sendRemoveBadInfo(QString::number(n_ScanerId),
-                                          str_Code);
+    auto p_MESRemoveBadBox = new MESRemoveBadBox(m_oMesUrl);
+    connect(p_MESRemoveBadBox, SIGNAL(sigUploadResult(QString, QString, int)),
+            this, SLOT(slot_Result_CompleteSortingBadProduct(QString, QString, int)));
+
+    m_mapRemoveBadBox.insert(n_ScanerId, p_MESRemoveBadBox);
+
+    p_MESRemoveBadBox->sendRemoveBadInfo(QString::number(n_ScanerId),
+                                         str_Code);
     return true;
 }
 
 bool SDMesManager::RequestProductListInfo(const int &n_ScanerId,
                                           const QString &str_Code)
 {
-    if(m_pMESReqBadInfo == NULL)
+    if(m_mapReqBadInfo.contains(n_ScanerId))
         return false;
 
-    m_pMESReqBadInfo->sendReqBadInfo(QString::number(n_ScanerId),
-                                     str_Code);
+    auto p_MESReqBadInfo = new MESReqBadInfo(m_oMesUrl);
+    connect(p_MESReqBadInfo, SIGNAL(sigReqBadInfo(QString, QString, QJsonArray, int)),
+            this, SLOT(slot_Result_RequestProductListInfo(QString, QString, QJsonArray, int)));
+
+    m_mapReqBadInfo.insert(n_ScanerId, p_MESReqBadInfo);
+
+    p_MESReqBadInfo->sendReqBadInfo(QString::number(n_ScanerId),
+                                    str_Code);
     return true;
 }
 
 bool SDMesManager::RequestBoxIsEmpty(const int &n_ScanerId,
                                      const QString &str_Code)
 {
-    if(m_pMESReqBoxIsEmpty == NULL)
+    if(m_mapReqBoxIsEmpty.contains(n_ScanerId))
         return false;
 
-    m_pMESReqBoxIsEmpty->sendReqBoxIsEmpty(QString::number(n_ScanerId),
-                                           str_Code);
+    auto p_MESReqBoxIsEmpty = new MESReqBoxIsEmpty(m_oMesUrl);
+    connect(p_MESReqBoxIsEmpty, SIGNAL(sigIsEmptyRespond(QString, QString, int, int)),
+            this, SLOT(slot_Result_RequestBoxIsEmpty(QString, QString, int, int)));
+
+    m_mapReqBoxIsEmpty.insert(n_ScanerId, p_MESReqBoxIsEmpty);
+
+    p_MESReqBoxIsEmpty->sendReqBoxIsEmpty(QString::number(n_ScanerId),
+                                          str_Code);
     return true;
 }
 
@@ -217,7 +287,11 @@ void SDMesManager::WorkSleep(int n_Msec)
 
 void SDMesManager::Heartbeat()
 {
-    if(m_pMESNetTest != NULL){
+    if(m_pMESNetTest == NULL){
+        m_pMESNetTest = new MESNetTest(m_oMesUrl);
+        connect(m_pMESNetTest, SIGNAL(sigTestResult(int)),
+                this, SLOT(slot_Result_Heartbeat(int)));
+
         m_pMESNetTest->sendTestMes();
     }
 }
@@ -298,17 +372,32 @@ BOXSTATE SDMesManager::TD_BoxState(const int &n_BoxType)
 void SDMesManager::run()
 {
     while(m_bRunSwitch){
+        WorkSleep(3000);
         Heartbeat();
-
-        WorkSleep(500);
     }
+}
+
+void SDMesManager::slot_TimeOut()
+{
+    Heartbeat();
 }
 
 void SDMesManager::slot_Result_SendBadProductList(QString str_ScanerId,
                                                   QString str_Code,
                                                   int n_Result)
 {
-    emit sig_Result_SendBadProductList(str_ScanerId.toInt(),
+    int n_ScanerID = str_ScanerId.toInt();
+
+    if(!m_mapAddBackFixBox.contains(n_ScanerID))
+        return;
+
+    auto p_MESAddBackFixBox = m_mapAddBackFixBox.value(n_ScanerID);
+
+    p_MESAddBackFixBox->deleteLater();
+
+    m_mapAddBackFixBox.remove(n_ScanerID);
+
+    emit sig_Result_SendBadProductList(n_ScanerID,
                                        str_Code,
                                        TD_MesRespondState(n_Result));
 }
@@ -318,19 +407,30 @@ void SDMesManager::slot_Result_RequestExportDirection(QString str_ScanerId,
                                                       QString str_ResultInfo,
                                                       int n_Result)
 {
-    EXPORTDIRECTION Direction;
+    int n_ScanerID = str_ScanerId.toInt();
+
+    if(!m_mapInStationInterface.contains(n_ScanerID))
+        return;
+
+    auto p_MESInStationInterface = m_mapInStationInterface.value(n_ScanerID);
+
+    p_MESInStationInterface->deleteLater();
+
+    m_mapInStationInterface.remove(n_ScanerID);
+
+    EXPORTDIRECTION Direction = IN_HIGHWAREHOUSE;
 
     if(str_ResultInfo == "FFR")
         Direction = IN_NEGATIVEDC_DC;
     else if(str_ResultInfo == "IN")
         Direction = IN_HIGHWAREHOUSE;
     else
-        emit sig_Result_RequestExportDirection(str_ScanerId.toInt(),
+        emit sig_Result_RequestExportDirection(n_ScanerID,
                                                str_Code,
                                                Direction,
                                                DATAERROR);
 
-    emit sig_Result_RequestExportDirection(str_ScanerId.toInt(),
+    emit sig_Result_RequestExportDirection(n_ScanerID,
                                            str_Code,
                                            Direction,
                                            TD_MesRespondState(n_Result));
@@ -338,6 +438,11 @@ void SDMesManager::slot_Result_RequestExportDirection(QString str_ScanerId,
 
 void SDMesManager::slot_Result_Heartbeat(int n_Type)
 {
+    m_pMESNetTest->deleteLater();
+
+//    delete m_pMESNetTest;
+    m_pMESNetTest = NULL;
+
     emit sig_Result_Heartbeat(TD_MesRespondState(n_Type));
 }
 
@@ -345,7 +450,18 @@ void SDMesManager::slot_Result_CompleteSortingBadProduct(QString str_ScanerId,
                                                          QString str_Code,
                                                          int n_Result)
 {
-    emit sig_Result_CompleteSortingBadProduct(str_ScanerId.toInt(),
+    int n_ScanerID = str_ScanerId.toInt();
+
+    if(!m_mapRemoveBadBox.contains(n_ScanerID))
+        return;
+
+    auto p_MESRemoveBadBox = m_mapRemoveBadBox.value(n_ScanerID);
+
+    p_MESRemoveBadBox->deleteLater();
+
+    m_mapRemoveBadBox.remove(n_ScanerID);
+
+    emit sig_Result_CompleteSortingBadProduct(n_ScanerID,
                                               str_Code,
                                               TD_MesRespondState(n_Result));
 }
@@ -355,6 +471,17 @@ void SDMesManager::slot_Result_RequestProductListInfo(QString str_ScanerId,
                                                       QJsonArray json_ProductList,
                                                       int n_Result)
 {
+    int n_ScanerID = str_ScanerId.toInt();
+
+    if(!m_mapReqBadInfo.contains(n_ScanerID))
+        return;
+
+    auto p_MESReqBadInfo = m_mapReqBadInfo.value(n_ScanerID);
+
+    p_MESReqBadInfo->deleteLater();
+
+    m_mapReqBadInfo.remove(n_ScanerID);
+
     QList<PRODUCTINFO> list_Product;
 
     if(TD_JsonToQList(json_ProductList, list_Product))
@@ -374,6 +501,17 @@ void SDMesManager::slot_Result_RequestBoxIsEmpty(QString str_ScanerId,
                                                  int n_BoxType,
                                                  int n_Result)
 {
+    int n_ScanerID = str_ScanerId.toInt();
+
+    if(!m_mapReqBoxIsEmpty.contains(n_ScanerID))
+        return;
+
+    auto p_MESReqBoxIsEmpty = m_mapReqBoxIsEmpty.value(n_ScanerID);
+
+    p_MESReqBoxIsEmpty->deleteLater();
+
+    m_mapReqBoxIsEmpty.remove(n_ScanerID);
+
     emit sig_Result_RequestBoxIsEmpty(str_ScanerId.toInt(),
                                       str_Code,
                                       TD_BoxState(n_BoxType),

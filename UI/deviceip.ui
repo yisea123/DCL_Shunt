@@ -1,0 +1,848 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DeviceIP</class>
+ <widget class="QWidget" name="DeviceIP">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>785</width>
+    <height>570</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="lb_Scaner_14">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>20</y>
+     <width>201</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>70</width>
+     <height>28</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Aharoni</family>
+     <pointsize>24</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 15px;
+background-color: rgb(85, 170, 255);</string>
+   </property>
+   <property name="text">
+    <string>扫码枪IP</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lb_Scaner_15">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>20</y>
+     <width>201</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>70</width>
+     <height>28</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Aharoni</family>
+     <pointsize>24</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 15px;
+background-color: rgb(85, 170, 255);</string>
+   </property>
+   <property name="text">
+    <string>PLCIP</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lb_Scaner_16">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>20</y>
+     <width>201</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>70</width>
+     <height>28</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Aharoni</family>
+     <pointsize>24</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 15px;
+background-color: rgb(85, 170, 255);</string>
+   </property>
+   <property name="text">
+    <string>机器手IP</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>90</y>
+     <width>188</width>
+     <height>89</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_15">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string>机器手-1</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="le_SportCardIP_1">
+      <property name="minimumSize">
+       <size>
+        <width>120</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_16">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string>机器手-2</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="le_SportCardIP_2">
+      <property name="minimumSize">
+       <size>
+        <width>120</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_17">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string>机器手-3</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="le_SportCardIP_3">
+      <property name="minimumSize">
+       <size>
+        <width>120</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>90</y>
+     <width>188</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_14">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string>扫码枪-1</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="le_PLCIP">
+      <property name="minimumSize">
+       <size>
+        <width>120</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>90</y>
+     <width>188</width>
+     <height>399</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string>扫码枪-1</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="le_ScanerIP_1">
+      <property name="minimumSize">
+       <size>
+        <width>120</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string>扫码枪-2</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="le_ScanerIP_2">
+      <property name="minimumSize">
+       <size>
+        <width>120</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_3">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string>扫码枪-3</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="le_ScanerIP_3">
+      <property name="minimumSize">
+       <size>
+        <width>120</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string>扫码枪-4</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="le_ScanerIP_4">
+      <property name="minimumSize">
+       <size>
+        <width>120</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_5">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string>扫码枪-5</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="le_ScanerIP_5">
+      <property name="minimumSize">
+       <size>
+        <width>120</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_6">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string>扫码枪-6</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLineEdit" name="le_ScanerIP_6">
+      <property name="minimumSize">
+       <size>
+        <width>120</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="label_7">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string>扫码枪-7</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QLineEdit" name="le_ScanerIP_7">
+      <property name="minimumSize">
+       <size>
+        <width>120</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0">
+     <widget class="QLabel" name="label_8">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string>扫码枪-8</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="1">
+     <widget class="QLineEdit" name="le_ScanerIP_8">
+      <property name="minimumSize">
+       <size>
+        <width>120</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="0">
+     <widget class="QLabel" name="label_9">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string>扫码枪-9</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="8" column="1">
+     <widget class="QLineEdit" name="le_ScanerIP_9">
+      <property name="minimumSize">
+       <size>
+        <width>120</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="0">
+     <widget class="QLabel" name="label_10">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string>扫码枪-10</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="1">
+     <widget class="QLineEdit" name="le_ScanerIP_10">
+      <property name="minimumSize">
+       <size>
+        <width>120</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="0">
+     <widget class="QLabel" name="label_11">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string>扫码枪-11</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="10" column="1">
+     <widget class="QLineEdit" name="le_ScanerIP_11">
+      <property name="minimumSize">
+       <size>
+        <width>120</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="0">
+     <widget class="QLabel" name="label_12">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string>扫码枪-12</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="11" column="1">
+     <widget class="QLineEdit" name="le_ScanerIP_12">
+      <property name="minimumSize">
+       <size>
+        <width>120</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="12" column="0">
+     <widget class="QLabel" name="label_13">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string>扫码枪-13</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="12" column="1">
+     <widget class="QLineEdit" name="le_ScanerIP_13">
+      <property name="minimumSize">
+       <size>
+        <width>120</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>8</x>
+     <y>505</y>
+     <width>761</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_4">
+    <item row="0" column="0">
+     <widget class="QPushButton" name="pb_Write">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>160</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>写入</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QPushButton" name="pb_Read">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>160</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>读取</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -48,12 +48,14 @@ void MESReqBadInfo::sendReqBadInfo(const QString scannerName, const QString boxI
     connect(manager, &QNetworkAccessManager::authenticationRequired,
             this, &MESReqBadInfo::slotAuthenticationRequired);
     QNetworkReply *reply = manager->post(req,soapXML.toUtf8());
-    qDebug()<<"pos msg"<<soapXML.toUtf8();
+//    qDebug()<<"pos msg"<<soapXML.toUtf8();
+    reply->setParent(this);
 
     QAbstractSocket::connect(reply,&QNetworkReply::finished,[=](){
+        reply->abort();
         if(reply->error() != QNetworkReply::NoError)
         {
-            qDebug()<<"error msg:"<<reply->errorString();
+//            qDebug()<<"error msg:"<<reply->errorString();
             int errCount = resendCount + 1;
             if(errCount < NetworkErrorResendTimes)
             {
@@ -90,7 +92,7 @@ void MESReqBadInfo::sendReqBadInfo(const QString scannerName, const QString boxI
 
 void MESReqBadInfo::analysisData(const QByteArray bytes, QJsonObject &jsonObj, bool &status)
 {
-    qDebug()<<"rec msg:"<<bytes;
+//    qDebug()<<"rec msg:"<<bytes;
     QXmlStreamReader reader(bytes);
     while (!reader.atEnd())
     {
@@ -98,7 +100,7 @@ void MESReqBadInfo::analysisData(const QByteArray bytes, QJsonObject &jsonObj, b
         {
             if(reader.name().toString().compare("status", Qt::CaseInsensitive) == 0)
             {
-                qDebug()<<reader.name();
+//                qDebug()<<reader.name();
                 reader.readNext();
                 if(reader.atEnd())
                 {
@@ -115,7 +117,7 @@ void MESReqBadInfo::analysisData(const QByteArray bytes, QJsonObject &jsonObj, b
                     {
                         status = false;
                     }
-                    qDebug()<<"status = "<<status;
+//                    qDebug()<<"status = "<<status;
                 }
             }
             if(reader.name().toString().compare("returnList", Qt::CaseInsensitive) == 0)
@@ -158,7 +160,7 @@ QJsonObject MESReqBadInfo::getJsonObj(QString jsonStr)
 
 void MESReqBadInfo::slotAuthenticationRequired(QNetworkReply *reply, QAuthenticator *authenticator)
 {
-    qDebug()<<"log in mes";
+//    qDebug()<<"log in mes";
     Q_UNUSED(reply);
     authenticator->setUser("sapint");
     authenticator->setPassword("sap12345");

@@ -3,6 +3,8 @@
 
 #include <QObject>
 #include <QThread>
+#include <QTimer>
+#include <QMap>
 
 #include "SD_MES/mesaddbackfixbox.h"
 #include "SD_MES/mesinstationinterface.h"
@@ -101,7 +103,8 @@ signals:
                                       BOXSTATE BoxState,
                                       MESRESPOND RespondState);
 
-public slots:
+private slots:
+    void slot_TimeOut();
 
 private slots:
     //MES反馈结果，上传坏品存放处，满框后，坏品料框信息
@@ -138,14 +141,22 @@ private slots:
                                        int n_Result);
 
 private:
-    MESAddBackFixBox *m_pMESAddBackFixBox;
-    MESInStationInterface *m_pMESInStationInterface;
     MESNetTest *m_pMESNetTest;
-    MESRemoveBadBox *m_pMESRemoveBadBox;
-    MESReqBadInfo *m_pMESReqBadInfo;
-    MESReqBoxIsEmpty *m_pMESReqBoxIsEmpty;
+//    MESAddBackFixBox *m_pMESAddBackFixBox;
+//    MESInStationInterface *m_pMESInStationInterface;
+//    MESRemoveBadBox *m_pMESRemoveBadBox;
+//    MESReqBadInfo *m_pMESReqBadInfo;
+//    MESReqBoxIsEmpty *m_pMESReqBoxIsEmpty;
+
+    QMap<int, MESAddBackFixBox *> m_mapAddBackFixBox;
+    QMap<int, MESInStationInterface *> m_mapInStationInterface;
+    QMap<int, MESRemoveBadBox *> m_mapRemoveBadBox;
+    QMap<int, MESReqBadInfo *> m_mapReqBadInfo;
+    QMap<int, MESReqBoxIsEmpty *> m_mapReqBoxIsEmpty;
 
     QUrl m_oMesUrl;
+
+    QTimer *m_pQTimer;
 
     bool m_bRunSwitch;
 };

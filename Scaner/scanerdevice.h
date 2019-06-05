@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QTcpSocket>
 #include "scandatamanage.h"
+#include <QMutex>
+#include <QMutexLocker>
 
 const char REQUESTCODE[3]       = {0x16, 0x54, 0x0D};
 const int REQUESTCODE_TIMEOUT   = 2500;
@@ -19,19 +21,26 @@ public:
 
     int GetDeviceID();
 
-    bool SetDeviceIPAndPort(QString str_IP, int n_Port);
+    bool SetDeviceIPAndPort(const QString &str_IP,
+                            const int &n_Port);
 
+    void GetSetDeviceIPAndPort(QString &str_IP,
+                               int &n_Port);
+
+private:
     bool ConnectDevice();
 
     bool DisConnectDevice();
 
+public:
     bool GetConnect();
 
     QString GetCodeData();
 
-    bool RequestCode(const int &n_ID);
 
 private:
+    bool RequestCode(const int &n_ID);
+
     void WorkSleep(int n_Msec);
 
 signals:
@@ -42,7 +51,11 @@ signals:
     void sig_ConnectState(int n_ID,
                           bool b_ConnectState);
 
-public slots:
+public slots:    
+    void slot_ConnectDevice(int n_ID);
+
+    void slot_DisconnectDevice(int n_ID);
+
     void slot_RequestCode(int n_ID);
 
 private slots:
@@ -68,6 +81,8 @@ private:
     bool m_bSacnResponse;
 
     QString m_strCodeData;
+
+    QMutex m_oQMutex;
 };
 
 #endif // SCANERDEVICE_H

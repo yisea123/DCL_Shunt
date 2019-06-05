@@ -50,12 +50,14 @@ void MESRemoveBadBox::sendRemoveBadInfo(const QString scannerName, const QString
     connect(manager, &QNetworkAccessManager::authenticationRequired,
             this, &MESRemoveBadBox::slotAuthenticationRequired);
     QNetworkReply *reply = manager->post(req,soapXML.toUtf8());
-    qDebug()<<"pos msg"<<soapXML.toUtf8();
+//    qDebug()<<"pos msg"<<soapXML.toUtf8();
+    reply->setParent(this);
 
     QAbstractSocket::connect(reply,&QNetworkReply::finished,[=](){
+        reply->abort();
         if(reply->error() != QNetworkReply::NoError)
         {
-            qDebug()<<"error msg:"<<reply->errorString();
+//            qDebug()<<"error msg:"<<reply->errorString();
             int errCount = resendCount + 1;
             if(errCount < NetworkErrorResendTimes)
             {
@@ -92,7 +94,7 @@ void MESRemoveBadBox::sendRemoveBadInfo(const QString scannerName, const QString
 
 void MESRemoveBadBox::analysisData(const QByteArray bytes, QJsonObject &jsonObj, bool &status)
 {
-    qDebug()<<"rec msg:"<<bytes;
+//    qDebug()<<"rec msg:"<<bytes;
     QXmlStreamReader reader(bytes);
     while (!reader.atEnd())
     {
@@ -100,7 +102,7 @@ void MESRemoveBadBox::analysisData(const QByteArray bytes, QJsonObject &jsonObj,
         {
             if(reader.name().toString().compare("status", Qt::CaseInsensitive) == 0)
             {
-                qDebug()<<reader.name();
+//                qDebug()<<reader.name();
                 reader.readNext();
                 if(reader.atEnd())
                 {
@@ -117,7 +119,7 @@ void MESRemoveBadBox::analysisData(const QByteArray bytes, QJsonObject &jsonObj,
                     {
                         status = false;
                     }
-                    qDebug()<<"status = "<<status;
+//                    qDebug()<<"status = "<<status;
                 }
             }
             if(reader.name().toString().compare("returnList", Qt::CaseInsensitive) == 0)
@@ -145,7 +147,7 @@ QJsonObject MESRemoveBadBox::getJsonObj(QString jsonStr)
     QJsonDocument jsonDoc(QJsonDocument::fromJson(jsonStr.toUtf8(), &jsonRrr));
     if(jsonRrr.error != QJsonParseError::NoError)
     {
-        qDebug() << "mes json error";
+//        qDebug() << "mes json error";
         return QJsonObject();
     }
     if(jsonDoc.isObject())
@@ -160,7 +162,7 @@ QJsonObject MESRemoveBadBox::getJsonObj(QString jsonStr)
 
 void MESRemoveBadBox::slotAuthenticationRequired(QNetworkReply *reply, QAuthenticator *authenticator)
 {
-    qDebug()<<"log in mes";
+//    qDebug()<<"log in mes";
     Q_UNUSED(reply);
     authenticator->setUser("sapint");
     authenticator->setPassword("sap12345");

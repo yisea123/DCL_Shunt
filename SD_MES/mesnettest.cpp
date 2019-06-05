@@ -19,6 +19,8 @@ void MESNetTest::setMesUrl(const QUrl url)
 
 void MESNetTest::sendTestMes(int resendCount)
 {
+    Q_UNUSED(resendCount);
+
     QNetworkRequest req;
     req.setUrl(mesUrl);
     req.setHeader(QNetworkRequest::ContentTypeHeader,("text/xml;charst=utf-8"));
@@ -33,13 +35,15 @@ void MESNetTest::sendTestMes(int resendCount)
                       "</acc:getResourceDescription>"
                       "</soapenv:Body>"
                       "</soapenv:Envelope>";
-    qDebug()<<"send msg:"<<soapXML;
+//    qDebug()<<"send msg:"<<soapXML;
     auto manager = new QNetworkAccessManager(this);
     connect(manager, &QNetworkAccessManager::authenticationRequired,
             this, &MESNetTest::slotAuthenticationRequired);
     QNetworkReply *reply = manager->post(req,soapXML.toUtf8());
+    reply->setParent(this);
 
-    QAbstractSocket::connect(reply,&QNetworkReply::finished,[=](){
+    QAbstractSocket::connect(reply,&QNetworkReply::finished,this, [=](){
+        reply->abort();
         if(reply->error() != QNetworkReply::NoError)
         {
             qDebug()<<"error msg:"<<reply->errorString();
@@ -83,12 +87,14 @@ void MESNetTest::sendTestMes(int resendCount)
                 emit sigTestResult(MesStatusError);
             }
         }
+
+//        reply->deleteLater();
     });
 }
 
 void MESNetTest::slotAuthenticationRequired(QNetworkReply *reply, QAuthenticator *authenticator)
 {
-    qDebug()<<"log in mes";
+//    qDebug()<<"log in mes";
     Q_UNUSED(reply);
     authenticator->setUser("sapint");
     authenticator->setPassword("sap12345");

@@ -1,0 +1,2835 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ScanerDebugView</class>
+ <widget class="QWidget" name="ScanerDebugView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>828</width>
+    <height>604</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>80</y>
+     <width>781</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="2">
+     <widget class="QPushButton" name="pb_Connect_1">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>连接</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QPushButton" name="pb_Scan_1">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>扫码</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="8">
+     <widget class="QLabel" name="lb_State_1">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>未连接</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="lb_Scaner_1">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>28</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string> 扫码抢-1 </string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="6">
+     <spacer name="horizontalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="9">
+     <spacer name="horizontalSpacer_4">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="3">
+     <widget class="QPushButton" name="pb_Disconnect_1">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>断开</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="7">
+     <widget class="QLabel" name="label_2">
+      <property name="minimumSize">
+       <size>
+        <width>45</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 状态：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="11">
+     <widget class="QLineEdit" name="le_CodeData_1">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="1">
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="10">
+     <widget class="QLabel" name="label_4">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 条形码</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>120</y>
+     <width>781</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="2">
+     <widget class="QPushButton" name="pb_Connect_2">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>连接</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QPushButton" name="pb_Scan_2">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>扫码</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="8">
+     <widget class="QLabel" name="lb_State_2">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>未连接</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="lb_Scaner_2">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>28</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string> 扫码抢-2 </string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="6">
+     <spacer name="horizontalSpacer_5">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="9">
+     <spacer name="horizontalSpacer_6">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="3">
+     <widget class="QPushButton" name="pb_Disconnect_2">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>断开</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="7">
+     <widget class="QLabel" name="label_3">
+      <property name="minimumSize">
+       <size>
+        <width>45</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 状态：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="11">
+     <widget class="QLineEdit" name="le_CodeData_2">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <spacer name="horizontalSpacer_7">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="1">
+     <spacer name="horizontalSpacer_8">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="10">
+     <widget class="QLabel" name="label_5">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 条形码</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget_3">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>160</y>
+     <width>781</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="0" column="2">
+     <widget class="QPushButton" name="pb_Connect_3">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>连接</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QPushButton" name="pb_Scan_3">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>扫码</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="8">
+     <widget class="QLabel" name="lb_State_3">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>未连接</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="lb_Scaner_3">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>28</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string> 扫码抢-3 </string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="6">
+     <spacer name="horizontalSpacer_9">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="9">
+     <spacer name="horizontalSpacer_10">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="3">
+     <widget class="QPushButton" name="pb_Disconnect_3">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>断开</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="7">
+     <widget class="QLabel" name="label_6">
+      <property name="minimumSize">
+       <size>
+        <width>45</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 状态：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="11">
+     <widget class="QLineEdit" name="le_CodeData_3">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <spacer name="horizontalSpacer_11">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="1">
+     <spacer name="horizontalSpacer_12">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="10">
+     <widget class="QLabel" name="label_7">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 条形码</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget_4">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>200</y>
+     <width>781</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_4">
+    <item row="0" column="2">
+     <widget class="QPushButton" name="pb_Connect_4">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>连接</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QPushButton" name="pb_Scan_4">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>扫码</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="8">
+     <widget class="QLabel" name="lb_State_4">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>未连接</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="lb_Scaner_4">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>28</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string> 扫码抢-4 </string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="6">
+     <spacer name="horizontalSpacer_13">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="9">
+     <spacer name="horizontalSpacer_14">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="3">
+     <widget class="QPushButton" name="pb_Disconnect_4">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>断开</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="7">
+     <widget class="QLabel" name="label_8">
+      <property name="minimumSize">
+       <size>
+        <width>45</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 状态：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="11">
+     <widget class="QLineEdit" name="le_CodeData_4">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <spacer name="horizontalSpacer_15">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="1">
+     <spacer name="horizontalSpacer_16">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="10">
+     <widget class="QLabel" name="label_9">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 条形码</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget_5">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>240</y>
+     <width>781</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_5">
+    <item row="0" column="2">
+     <widget class="QPushButton" name="pb_Connect_5">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>连接</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QPushButton" name="pb_Scan_5">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>扫码</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="8">
+     <widget class="QLabel" name="lb_State_5">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>未连接</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="lb_Scaner_5">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>28</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string> 扫码抢-5 </string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="6">
+     <spacer name="horizontalSpacer_17">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="9">
+     <spacer name="horizontalSpacer_18">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="3">
+     <widget class="QPushButton" name="pb_Disconnect_5">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>断开</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="7">
+     <widget class="QLabel" name="label_10">
+      <property name="minimumSize">
+       <size>
+        <width>45</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 状态：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="11">
+     <widget class="QLineEdit" name="le_CodeData_5">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <spacer name="horizontalSpacer_19">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="1">
+     <spacer name="horizontalSpacer_20">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="10">
+     <widget class="QLabel" name="label_11">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 条形码</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget_6">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>280</y>
+     <width>781</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_6">
+    <item row="0" column="2">
+     <widget class="QPushButton" name="pb_Connect_6">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>连接</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QPushButton" name="pb_Scan_6">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>扫码</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="8">
+     <widget class="QLabel" name="lb_State_6">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>未连接</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="lb_Scaner_6">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>28</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string> 扫码抢-6 </string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="6">
+     <spacer name="horizontalSpacer_21">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="9">
+     <spacer name="horizontalSpacer_22">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="3">
+     <widget class="QPushButton" name="pb_Disconnect_6">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>断开</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="7">
+     <widget class="QLabel" name="label_12">
+      <property name="minimumSize">
+       <size>
+        <width>45</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 状态：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="11">
+     <widget class="QLineEdit" name="le_CodeData_6">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <spacer name="horizontalSpacer_23">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="1">
+     <spacer name="horizontalSpacer_24">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="10">
+     <widget class="QLabel" name="label_13">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 条形码</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget_7">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>320</y>
+     <width>781</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_7">
+    <item row="0" column="2">
+     <widget class="QPushButton" name="pb_Connect_7">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>连接</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QPushButton" name="pb_Scan_7">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>扫码</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="8">
+     <widget class="QLabel" name="lb_State_7">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>未连接</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="lb_Scaner_7">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>28</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string> 扫码抢-7 </string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="6">
+     <spacer name="horizontalSpacer_25">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="9">
+     <spacer name="horizontalSpacer_26">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="3">
+     <widget class="QPushButton" name="pb_Disconnect_7">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>断开</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="7">
+     <widget class="QLabel" name="label_14">
+      <property name="minimumSize">
+       <size>
+        <width>45</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 状态：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="11">
+     <widget class="QLineEdit" name="le_CodeData_7">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <spacer name="horizontalSpacer_27">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="1">
+     <spacer name="horizontalSpacer_28">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="10">
+     <widget class="QLabel" name="label_15">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 条形码</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget_8">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>360</y>
+     <width>781</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_8">
+    <item row="0" column="2">
+     <widget class="QPushButton" name="pb_Connect_8">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>连接</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QPushButton" name="pb_Scan_8">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>扫码</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="8">
+     <widget class="QLabel" name="lb_State_8">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>未连接</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="lb_Scaner_8">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>28</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string> 扫码抢-8 </string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="6">
+     <spacer name="horizontalSpacer_29">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="9">
+     <spacer name="horizontalSpacer_30">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="3">
+     <widget class="QPushButton" name="pb_Disconnect_8">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>断开</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="7">
+     <widget class="QLabel" name="label_16">
+      <property name="minimumSize">
+       <size>
+        <width>45</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 状态：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="11">
+     <widget class="QLineEdit" name="le_CodeData_8">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <spacer name="horizontalSpacer_31">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="1">
+     <spacer name="horizontalSpacer_32">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="10">
+     <widget class="QLabel" name="label_17">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 条形码</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget_9">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>400</y>
+     <width>781</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_9">
+    <item row="0" column="2">
+     <widget class="QPushButton" name="pb_Connect_9">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>连接</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QPushButton" name="pb_Scan_9">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>扫码</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="8">
+     <widget class="QLabel" name="lb_State_9">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>未连接</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="lb_Scaner_9">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>28</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string> 扫码抢-9 </string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="6">
+     <spacer name="horizontalSpacer_33">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="9">
+     <spacer name="horizontalSpacer_34">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="3">
+     <widget class="QPushButton" name="pb_Disconnect_9">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>断开</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="7">
+     <widget class="QLabel" name="label_18">
+      <property name="minimumSize">
+       <size>
+        <width>45</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 状态：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="11">
+     <widget class="QLineEdit" name="le_CodeData_9">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <spacer name="horizontalSpacer_35">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="1">
+     <spacer name="horizontalSpacer_36">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="10">
+     <widget class="QLabel" name="label_19">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 条形码</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget_10">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>440</y>
+     <width>781</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_10">
+    <item row="0" column="2">
+     <widget class="QPushButton" name="pb_Connect_10">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>连接</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QPushButton" name="pb_Scan_10">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>扫码</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="8">
+     <widget class="QLabel" name="lb_State_10">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>未连接</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="lb_Scaner_10">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>28</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string> 扫码抢-10 </string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="6">
+     <spacer name="horizontalSpacer_37">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="9">
+     <spacer name="horizontalSpacer_38">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="3">
+     <widget class="QPushButton" name="pb_Disconnect_10">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>断开</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="7">
+     <widget class="QLabel" name="label_20">
+      <property name="minimumSize">
+       <size>
+        <width>45</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 状态：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="11">
+     <widget class="QLineEdit" name="le_CodeData_10">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <spacer name="horizontalSpacer_39">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="1">
+     <spacer name="horizontalSpacer_40">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="10">
+     <widget class="QLabel" name="label_21">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 条形码</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget_11">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>480</y>
+     <width>781</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_11">
+    <item row="0" column="2">
+     <widget class="QPushButton" name="pb_Connect_11">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>连接</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QPushButton" name="pb_Scan_11">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>扫码</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="8">
+     <widget class="QLabel" name="lb_State_11">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>未连接</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="lb_Scaner_11">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>28</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string> 扫码抢-11 </string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="6">
+     <spacer name="horizontalSpacer_41">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="9">
+     <spacer name="horizontalSpacer_42">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="3">
+     <widget class="QPushButton" name="pb_Disconnect_11">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>断开</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="7">
+     <widget class="QLabel" name="label_22">
+      <property name="minimumSize">
+       <size>
+        <width>45</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 状态：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="11">
+     <widget class="QLineEdit" name="le_CodeData_11">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <spacer name="horizontalSpacer_43">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="1">
+     <spacer name="horizontalSpacer_44">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="10">
+     <widget class="QLabel" name="label_23">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 条形码</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget_12">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>520</y>
+     <width>781</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_12">
+    <item row="0" column="2">
+     <widget class="QPushButton" name="pb_Connect_12">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>连接</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QPushButton" name="pb_Scan_12">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>扫码</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="8">
+     <widget class="QLabel" name="lb_State_12">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>未连接</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="lb_Scaner_12">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>28</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string> 扫码抢-12 </string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="6">
+     <spacer name="horizontalSpacer_45">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="9">
+     <spacer name="horizontalSpacer_46">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="3">
+     <widget class="QPushButton" name="pb_Disconnect_12">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>断开</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="7">
+     <widget class="QLabel" name="label_24">
+      <property name="minimumSize">
+       <size>
+        <width>45</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 状态：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="11">
+     <widget class="QLineEdit" name="le_CodeData_12">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <spacer name="horizontalSpacer_47">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="1">
+     <spacer name="horizontalSpacer_48">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="10">
+     <widget class="QLabel" name="label_25">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 条形码</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget_13">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>560</y>
+     <width>781</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_13">
+    <item row="0" column="2">
+     <widget class="QPushButton" name="pb_Connect_13">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>连接</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="5">
+     <widget class="QPushButton" name="pb_Scan_13">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>扫码</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="8">
+     <widget class="QLabel" name="lb_State_13">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>未连接</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="lb_Scaner_13">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>28</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+      </property>
+      <property name="text">
+       <string> 扫码抢-13 </string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="6">
+     <spacer name="horizontalSpacer_49">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="9">
+     <spacer name="horizontalSpacer_50">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="3">
+     <widget class="QPushButton" name="pb_Disconnect_13">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>断开</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="7">
+     <widget class="QLabel" name="label_26">
+      <property name="minimumSize">
+       <size>
+        <width>45</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 状态：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="11">
+     <widget class="QLineEdit" name="le_CodeData_13">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 6px;
+</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <spacer name="horizontalSpacer_51">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="1">
+     <spacer name="horizontalSpacer_52">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="10">
+     <widget class="QLabel" name="label_27">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string> 条形码</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="lb_Scaner_14">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>17</y>
+     <width>631</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>70</width>
+     <height>28</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Aharoni</family>
+     <pointsize>24</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 15px;
+background-color: rgb(85, 170, 255);</string>
+   </property>
+   <property name="text">
+    <string>扫码枪</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

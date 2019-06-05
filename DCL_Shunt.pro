@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui network
 
 CONFIG += c++11
 
@@ -34,15 +34,38 @@ PRECOMPILED_HEADER = stable.h
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    maincontrol.cpp \
+    UI/deviceip.cpp \
+    UI/mesdebugview.cpp \
+    UI/plcdebugview.cpp \
+    UI/scanerdebugview.cpp \
+    UI/sportcarddebugview.cpp \
+    ConfigFile/datafile.cpp \
+    UI/logview.cpp \
+    UI/logviewinstancegetter.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    maincontrol.h \
+    dcl_shunt_define.h \
+    UI/deviceip.h \
+    UI/mesdebugview.h \
+    UI/plcdebugview.h \
+    UI/scanerdebugview.h \
+    UI/sportcarddebugview.h \
+    ConfigFile/datafile.h \
+    UI/logview.h \
+    UI/logviewinstancegetter.h \
+    UI/ui_define.h
+
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    UI/deviceip.ui \
+    UI/mesdebugview.ui \
+    UI/plcdebugview.ui \
+    UI/scanerdebugview.ui \
+    UI/sportcarddebugview.ui
 
-# Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
+

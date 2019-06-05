@@ -45,12 +45,14 @@ void MESAddBackFixBox::sendBackFixBox(const QString scannerName, const QString b
     connect(manager, &QNetworkAccessManager::authenticationRequired,
             this, &MESAddBackFixBox::slotAuthenticationRequired);
     QNetworkReply *reply = manager->post(req,soapXML.toUtf8());
-    qDebug()<<"pos msg"<<soapXML.toUtf8();
+//    qDebug()<<"pos msg"<<soapXML.toUtf8();
+    reply->setParent(this);
 
     QAbstractSocket::connect(reply,&QNetworkReply::finished,[=](){
+        reply->abort();
         if(reply->error() != QNetworkReply::NoError)
         {
-            qDebug()<<"error msg:"<<reply->errorString();
+//            qDebug()<<"error msg:"<<reply->errorString();
             int errCount = resendCount + 1;
             if(errCount < NetworkErrorResendTimes)
             {
@@ -87,7 +89,7 @@ void MESAddBackFixBox::sendBackFixBox(const QString scannerName, const QString b
 
 void MESAddBackFixBox::analysisData(const QByteArray bytes, QJsonObject &jsonObj, bool &status)
 {
-    qDebug()<<"rec msg:"<<bytes;
+//    qDebug()<<"rec msg:"<<bytes;
     QXmlStreamReader reader(bytes);
     while (!reader.atEnd())
     {
@@ -95,7 +97,7 @@ void MESAddBackFixBox::analysisData(const QByteArray bytes, QJsonObject &jsonObj
         {
             if(reader.name().toString().compare("status", Qt::CaseInsensitive) == 0)
             {
-                qDebug()<<reader.name();
+//                qDebug()<<reader.name();
                 reader.readNext();
                 if(reader.atEnd())
                 {
@@ -112,7 +114,7 @@ void MESAddBackFixBox::analysisData(const QByteArray bytes, QJsonObject &jsonObj
                     {
                         status = false;
                     }
-                    qDebug()<<"status = "<<status;
+//                    qDebug()<<"status = "<<status;
                 }
             }
             if(reader.name().toString().compare("returnList", Qt::CaseInsensitive) == 0)
@@ -140,7 +142,7 @@ QJsonObject MESAddBackFixBox::getJsonObj(QString jsonStr)
     QJsonDocument jsonDoc(QJsonDocument::fromJson(jsonStr.toUtf8(), &jsonRrr));
     if(jsonRrr.error != QJsonParseError::NoError)
     {
-        qDebug() << "mes json error";
+//        qDebug() << "mes json error";
         return QJsonObject();
     }
     if(jsonDoc.isObject())
@@ -167,7 +169,7 @@ QString MESAddBackFixBox::getJsonString(const QString scannerName, const QString
 
 void MESAddBackFixBox::slotAuthenticationRequired(QNetworkReply *reply, QAuthenticator *authenticator)
 {
-    qDebug()<<"log in mes";
+//    qDebug()<<"log in mes";
     Q_UNUSED(reply);
     authenticator->setUser("sapint");
     authenticator->setPassword("sap12345");

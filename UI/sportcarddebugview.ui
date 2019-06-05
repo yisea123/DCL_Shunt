@@ -1,0 +1,1149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SportCardDebugView</class>
+ <widget class="QWidget" name="SportCardDebugView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>904</width>
+    <height>631</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="lb_Scaner_14">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>10</y>
+     <width>631</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>70</width>
+     <height>28</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Aharoni</family>
+     <pointsize>24</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 15px;
+background-color: rgb(85, 170, 255);</string>
+   </property>
+   <property name="text">
+    <string>机械手</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tb_Write">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>280</y>
+     <width>401</width>
+     <height>341</height>
+    </rect>
+   </property>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>180</number>
+   </attribute>
+   <attribute name="horizontalHeaderMinimumSectionSize">
+    <number>180</number>
+   </attribute>
+   <attribute name="verticalHeaderDefaultSectionSize">
+    <number>22</number>
+   </attribute>
+   <attribute name="verticalHeaderMinimumSectionSize">
+    <number>22</number>
+   </attribute>
+   <row>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>2</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>3</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>4</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>5</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>6</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>7</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>8</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>9</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>10</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>11</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>12</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>13</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>14</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>15</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>16</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>17</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>18</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>19</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>20</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>21</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>22</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>23</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>24</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>25</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>26</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>27</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>28</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>29</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>30</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>31</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>32</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>33</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>34</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>35</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>36</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>37</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>38</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>39</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>40</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>41</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>42</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>43</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>44</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>45</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>46</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>47</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>48</string>
+    </property>
+   </row>
+   <column>
+    <property name="text">
+     <string>ID</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>品质</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QTableWidget" name="tb_Get_2">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>280</y>
+     <width>401</width>
+     <height>341</height>
+    </rect>
+   </property>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>180</number>
+   </attribute>
+   <attribute name="horizontalHeaderMinimumSectionSize">
+    <number>180</number>
+   </attribute>
+   <attribute name="verticalHeaderDefaultSectionSize">
+    <number>22</number>
+   </attribute>
+   <attribute name="verticalHeaderMinimumSectionSize">
+    <number>22</number>
+   </attribute>
+   <row>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>2</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>3</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>4</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>5</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>6</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>7</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>8</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>9</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>10</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>11</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>12</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>13</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>14</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>15</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>16</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>17</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>18</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>19</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>20</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>21</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>22</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>23</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>24</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>25</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>26</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>27</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>28</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>29</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>30</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>31</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>32</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>33</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>34</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>35</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>36</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>37</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>38</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>39</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>40</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>41</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>42</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>43</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>44</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>45</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>46</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>47</string>
+    </property>
+   </row>
+   <row>
+    <property name="text">
+     <string>48</string>
+    </property>
+   </row>
+   <column>
+    <property name="text">
+     <string>ID</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>品质</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QPushButton" name="pb_Write_4x">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>230</y>
+     <width>391</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>75</width>
+     <height>45</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 8px;
+color:rgb(24, 28, 27);</string>
+   </property>
+   <property name="text">
+    <string>写入-4x寄存器</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pb_Read_4x">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>230</y>
+     <width>391</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>75</width>
+     <height>45</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 8px;
+color:rgb(24, 28, 27);</string>
+   </property>
+   <property name="text">
+    <string>读取-4x寄存器</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>80</y>
+     <width>396</width>
+     <height>126</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="2" column="4">
+     <widget class="QPushButton" name="pb_Write1_4">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QPushButton" name="pb_Write0_1">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QPushButton" name="pb_Write1_1">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4">
+     <widget class="QLabel" name="lb_0x_4">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="lb_WorkStation_1">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>28</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string>写入-1</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QPushButton" name="pb_Write0_2">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="QLabel" name="label_7">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string>满框到位</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="3">
+     <widget class="QPushButton" name="pb_Write0_3">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QPushButton" name="pb_Write1_2">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string>0x寄存器</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLabel" name="lb_0x_1">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <widget class="QLabel" name="label_8">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string>空框到位</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QLabel" name="lb_0x_2">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLabel" name="label_6">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string>请求换空框</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="4">
+     <widget class="QPushButton" name="pb_Write0_4">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="lb_WorkStation_2">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>28</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string>写入-0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="3">
+     <widget class="QPushButton" name="pb_Write1_3">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLabel" name="label_5">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(180, 189, 184);</string>
+      </property>
+      <property name="text">
+       <string>请求换满框</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <widget class="QLabel" name="lb_0x_3">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;
+background-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="lb_StationSelect">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>80</y>
+     <width>391</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>38</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>18</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius: 5px;
+background-color: rgb(85, 170, 255);</string>
+   </property>
+   <property name="text">
+    <string>当前选择：工位-</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>130</y>
+     <width>391</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <widget class="QPushButton" name="pb_Station_1">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>80</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>工位-1</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QPushButton" name="pb_Station_2">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>80</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>工位-2</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QPushButton" name="pb_Station_3">
+      <property name="minimumSize">
+       <size>
+        <width>75</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>80</width>
+        <height>50</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgb(220, 230, 225);
+border-color: rgb(0, 0, 0);
+border-radius: 5px;
+color:rgb(24, 28, 27);</string>
+      </property>
+      <property name="text">
+       <string>工位-3</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -68,14 +68,12 @@ void ScanDataManage::HandleCacheData()
     int n_HeaderIndex = m_byteCacheData.indexOf(PACKETHANDER_CHAR);
 
     //数据太短不处理
-    if(m_byteCacheData.size() < COMPLETEDATALENGHT)
-    {
+    if(m_byteCacheData.size() < COMPLETEDATALENGHT){
         return;
     }
 
     //包头检查开头，清除数据
-    if(n_HeaderIndex == -1)
-    {
+    if(n_HeaderIndex == -1){
         m_byteCacheData.clear();
         return;
     }
